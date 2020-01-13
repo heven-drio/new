@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<keep-alive include="Home,Want,Cart,Mine">
+			<router-view />
+		</keep-alive>
+		<Tab v-show="!$route.meta.fullScreen" />
+
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+	import Tab from '@/views/Tab/Tab.vue';
+	// import api from "./axios/api.js";
+	export default {
+		// name: "app",
+		components: {
+			Tab
+		},
+		// data() {
+		// 	return {
+		// 		dataShow: []
+		// 	};
+		// },
+		// created() {
+		// 	this.getdata();
+		// },
+		// methods: {
+		// 	getdata: function() {
+		// 		api.mockdata("/data/index").then(res => {
+		// 			// console.log(res);
+		// 			// console.log(res);
+		// 			this.dataShow = res.data;
+		// 		});
+		// 	},
+		// },
+	};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
